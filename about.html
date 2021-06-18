@@ -13,28 +13,55 @@
 			box-sizing: border-box;
 		}
 
-		body {
+		h1 {
+			font-size: 5rem;
+		}
+
+		.toppart {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			height: 100vh;
+			height: 80vh;
 			font-family: Verdana, Geneva, Tahoma, sans-serif;
-			/* font-size: 5rem; */
-			background-color: darkslateblue;
+			background-color: coral;
 			color: white;
 		}
 
-		h1 {
-			font-size: 5rem;
+		p {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
+			font-size: 25px;
+		}
+
+		.links {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
+		}
+
+		a {
+			font-size: 2rem;
 		}
 	</style>
 </head>
 
 <body>
-	<h1>About Page</h1>
-	<p>Andrei's About Page</p>
-	<p>I am a web developer, I use Java Spring Boot, Node.JS, VanillaJS, and a little bit of AngularJS</p>
+	<div class="toppart">
+		<h1>About Page</h1><br>
+		A little bit of me :)
+	</div>
+
+	<p>I am Andrei Martin, web developer since 2018, I use Java Spring Boot, Node.JS, VanillaJS, PHP, and a little bit of
+		AngularJS</p>
 	<p>Still a work in progress but I can get the job done.</p>
+	<p>andreimartinbaquino@gmail.com | github.com/dreingineer | Manila and Mandaluyong, Philippines</p>
+	<div class="links">
+		<a href="/">Home Page</a>
+	</div>
+
 </body>
 
 </html>

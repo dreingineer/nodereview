@@ -13,25 +13,51 @@
 			box-sizing: border-box;
 		}
 
-		body {
+		.toppart {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			height: 100vh;
+			height: 80vh;
 			font-family: Verdana, Geneva, Tahoma, sans-serif;
-			background-color: darkslateblue;
+			background-color: green;
 			color: white;
+		}
+
+		.links {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
 		}
 
 		h1 {
 			font-size: 5rem;
 		}
+
+		p {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
+			font-size: 25px;
+		}
+
+		a {
+			font-size: 2rem;
+		}
 	</style>
 </head>
 
 <body>
-	<h1>Node JS Home</h1><br>
-	<p>I use Node.JS, and a little HTML/CSS to make this simple but funtional website.</p>
+	<div class="toppart">
+		<h1>Home Page served by Node.JS!</h1><br>(oh yeah!)
+	</div>
+	<p>I use Node.JS, and a little HTML/CSS to make this simple but funtional website. Thanks to free resources in
+		youtube and my experience.</p>
+	<div class="links">
+		<a href="/about">About Page</a>
+	</div>
+
 </body>
 
 </html>
