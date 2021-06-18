@@ -11,5 +11,8 @@
   "keywords": [],
   "author": "dreingineer ",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }
