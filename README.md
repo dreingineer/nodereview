@@ -8,3 +8,6 @@ I added my own implementation in the tutorial to check and experiment on what ev
 
 June 22, 2021
 I am facing problems regarding instagram integration, I am having a hard time figuring out how to display my IG picture in my new page.
+
+June 23, 2021
+I had a hard time integrating my IG profile, I moved on to adding daily covid update via Covid API and fetch. Added some mobile responsiveness on my landing page.
