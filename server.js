@@ -1,11 +1,9 @@
-//html content 
 const express = require('express')
 const PORT = process.env.PORT || 5000;
 const LOCALHOST = process.env.LOCALHOST || '0.0.0.0';
 const path = require('path')
 const app = express();
 const nodeFetch = require('node-fetch')
-const moment = require('moment')
 
 const server = require('http').createServer(app)
 
