@@ -6,7 +6,7 @@ let igId;
 getIgData();
 
 async function getIgData() {
-  const rawData = await fetch('/igdata')
+  const rawData = await fetch('/api/igdata')
   console.log(rawData)
   const latestData = await rawData.json();
   console.log('IG DATA', latestData)

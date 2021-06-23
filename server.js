@@ -4,6 +4,8 @@ const PORT = process.env.PORT || 3000;
 const LOCALHOST = process.env.LOCALHOST || '0.0.0.0';
 const path = require('path')
 const app = express();
+const nodeFetch = require('node-fetch')
+const moment = require('moment')
 
 const server = require('http').createServer(app)
 
@@ -39,7 +41,7 @@ app.get('/socmed', (req, res, next) => {
 })
 
 // get ig response data via ajax
-app.get('/igdata', cors(), async (req, res, next) => {
+app.get('/api/igdata', cors(), async (req, res, next) => {
 	const USERNAME = 'dreingineer';
 	const BASE_URL = `https://www.instagram.com/${USERNAME}`
 
@@ -68,6 +70,18 @@ app.get('/igdata', cors(), async (req, res, next) => {
 	debugger;
 })
 
+// covid api call 
+app.get('/api/covid-update-now', async(req, res) => {
+	try {
+		const covidApiUrl = "https://api.apify.com/v2/key-value-stores/lFItbkoNDXKeSWBBA/records/LATEST?disableRedirect=true"
+		const response = await nodeFetch(covidApiUrl)
+		const jsonCovid = await response.json()
+		res.json(jsonCovid)
+	} catch(err) {
+		console.log(err)
+	}
+})
+
 // default route
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname + '/public/404.html'))
@@ -77,10 +91,10 @@ app.get('*', (req, res) => {
 // socket io
 io.on('connection', (socket) => {
 	socket.on('newuser', (username) => {
-		socket.broadcast.emit('update', username + " joined the chat.")
+		socket.broadcast.emit('update', username + " joined our lounge. 🙋")
 	})
 	socket.on('exit', (username) => {
-		socket.broadcast.emit('update', username + " left the chat.")
+		socket.broadcast.emit('update', username + " left our lounge. 💘")
 	})
 	socket.on('chat', (message) => {
 		socket.broadcast.emit('chat', message)

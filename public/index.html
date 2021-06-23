@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Andrei's Node JS</title>
+	<title>AndreiJS</title>
 	<style>
 		* {
 			margin: 0;
@@ -45,10 +45,40 @@
 		a {
 			font-size: 2rem;
 		}
+
+		.row {
+			display: grid;
+			grid-template-columns: auto auto auto auto auto auto;
+		}
+
+		.row > div {
+			text-align: center;
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+		}
+
+		#recovered {
+			color: green;
+		}
+
+		#activecases {
+			color: crimson
+		}
 	</style>
 </head>
 
 <body>
+	<div>
+		<p>🇵🇭 <span id="country"></span>Covid-19 update: </p>
+		<div class="row">
+			<div class="col1"></span><strong>INFECTED:</strong><span></span><span id="infected"></span></div>
+			<div class="col2"></span><strong>TESTED:</strong><span></span><span id="tested"></span></div>
+			<div class="col3"></span><strong>RECOVERED:</strong><span></span><span id="recovered"></span></div>
+			<div class="col3"></span><strong>DECEASED(✝):</strong><span></span><span id="deceased"></span></div>
+			<div class="col3"></span><strong>ACTIVE CASES:</strong><span></span><span id="activecases"></span></div>
+			<div class="col3"></span><strong>UPDATED(🔁):</strong><span></span><span id="lastupdate"></span></div>
+		</div>
+		<p>MASK😷 HUGAS👏 IWAS📏 +BAKUNA💉</p>
+	</div>
 	<div class="toppart">
 		<h1>Home Page served by Node.JS!</h1><br>(oh yeah!)
 	</div>
@@ -61,6 +91,8 @@
 		<a href="/chat">Let's Chat!</a>
 	</div>
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+	<script src="./index.controller.js"></script>
 </body>
 
 </html>
