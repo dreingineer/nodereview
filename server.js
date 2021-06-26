@@ -12,6 +12,12 @@ const io = require('socket.io')(server)
 const request = require('request-promise')
 const cheerio = require('cheerio')
 const cors = require('cors')
+const Datastore = require('nedb')
+const database = new Datastore('dreisdatabase.db')
+database.loadDatabase()
+
+// database.insert({name:'Andrei', status: 'curious'})
+// database.insert({name:'Bloom', status: 'studying php!'})
 
 app.use(express.static(__dirname + '/public'))
 // app.use(express.static('/images', __dirnamae + '/public/images'))
@@ -36,6 +42,18 @@ app.get('/chat', (req, res) => {
 app.get('/socmed', (req, res, next) => {
 	res.sendFile(path.join(__dirname + '/public/socmed.html'))
 	next()
+})
+
+app.get('/visitorform', (req, res) => {
+	res.sendFile(path.join(__dirname + '/public/visitorForm.html'))
+})
+
+// api to post data from 
+app.post('/api/addData', async (req, res) => {
+	const formData = req.body
+	const timestamp = Date.now()
+	formData.timestamp = timestamp
+	const data = await database.insert(formData)
 })
 
 // get ig response data via ajax
