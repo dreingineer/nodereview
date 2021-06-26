@@ -11,3 +11,6 @@ I am facing problems regarding instagram integration, I am having a hard time fi
 
 June 23, 2021
 I had a hard time integrating my IG profile, I moved on to adding daily covid update via Covid API and fetch. Added some mobile responsiveness on my landing page.
+
+June 27. 2021
+Added new feature, this web app can now save data using nedb, thanks to coding train's tutorial about database, still a work in progress, I just started the form and the api route to save database. Next is on this project is to add ajax to save the data via api route.
