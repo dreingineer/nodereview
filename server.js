@@ -12,7 +12,8 @@ const io = require('socket.io')(server)
 const request = require('request-promise')
 const cheerio = require('cheerio')
 const cors = require('cors')
-const Datastore = require('nedb')
+const Datastore = require('nedb');
+const { now } = require('moment');
 const database = new Datastore('dreisdatabase.db')
 database.loadDatabase()
 
@@ -21,6 +22,12 @@ database.loadDatabase()
 
 app.use(express.static(__dirname + '/public'))
 // app.use(express.static('/images', __dirnamae + '/public/images'))
+
+// para maka pasok ung json from ajax/fetch api/ client side js
+// parse application/x-www-form-urlencoded
+app.use(express.urlencoded({limit:'50mb', extended: true}))
+// parse application/json
+app.use(express.json({limit:'50mb', extended: true}))
 
 app.use(cors({
 	origin:'*',
@@ -48,12 +55,25 @@ app.get('/visitorform', (req, res) => {
 	res.sendFile(path.join(__dirname + '/public/visitorForm.html'))
 })
 
-// api to post data from 
-app.post('/api/addData', async (req, res) => {
-	const formData = req.body
-	const timestamp = Date.now()
-	formData.timestamp = timestamp
-	const data = await database.insert(formData)
+app.post('/api/formdata', async (request, response) => {
+	let data = request.body
+	let timestamp = Date.now()
+	data.timestamp = timestamp
+	let result = await database.insert(data)
+	let saved = await response.json(result)
+	// console.log(saved.data)
+})
+
+// api to get data from nedb
+app.get('/api/formdata', async (req, res) => {
+	await database.find({}, (err, docs) => {
+		if(err) {
+			console.error(err)
+			res.end()
+			return
+		}
+		else res.json(docs)
+	})
 })
 
 // get ig response data via ajax
