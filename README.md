@@ -14,3 +14,6 @@ I had a hard time integrating my IG profile, I moved on to adding daily covid up
 
 June 27. 2021
 Added new feature, this web app can now save data using nedb, thanks to coding train's tutorial about database, still a work in progress, I just started the form and the api route to save database. Next is on this project is to add ajax to save the data via api route.
+
+June 28, 2021
+Saving visitor's form feature added, will work on the UI improvement using bootstrap and page to show all the visitors who dropped me some messages via this app
