@@ -25,15 +25,16 @@ app.use(express.static(__dirname + '/public'))
 
 // para maka pasok ung json from ajax/fetch api/ client side js
 // parse application/x-www-form-urlencoded
-app.use(express.urlencoded({limit:'50mb', extended: true}))
+app.use(express.urlencoded({limit:'1mb', extended: true}))
 // parse application/json
-app.use(express.json({limit:'50mb', extended: true}))
+app.use(express.json({limit:'1mb', extended: true}))
 
 app.use(cors({
 	origin:'*',
 	methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
 }))
 
+// pages router
 app.get('/', (req,res) => {
 	res.sendFile(path.join(__dirname + '/public/index.html'))
 })
@@ -55,13 +56,15 @@ app.get('/visitorform', (req, res) => {
 	res.sendFile(path.join(__dirname + '/public/visitorForm.html'))
 })
 
+// CRUD controller
+// post api routes
 app.post('/api/formdata', async (request, response) => {
 	let data = request.body
+	console.log(data)
 	let timestamp = Date.now()
 	data.timestamp = timestamp
 	let result = await database.insert(data)
 	let saved = await response.json(result)
-	// console.log(saved.data)
 })
 
 // api to get data from nedb

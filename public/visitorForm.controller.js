@@ -1,12 +1,19 @@
+let video;
 function setup() {
-	noCanvas()
-	const video = createCapture(VIDEO)
+	// noCanvas()
+	background(51)
+	let cnv = createCanvas(320, 240)
+	video = createCapture(VIDEO)
+	video.elt.setAttribute('playsinline', '')
+	//hides video
+	video.hide()
 	video.size(320, 240)
+	cnv.position(0, 0, 'fixed')
 
 	const button = document.getElementById('submit')
 	
 	button.addEventListener('click', async () => {
-		console.log('clicking')
+		// console.log('clicking')
 		const visitorName = document.getElementById('name').value
 		const visitorEmail = document.getElementById('email').value
 		const visitorComment = document.getElementById('comment').value
@@ -16,6 +23,8 @@ function setup() {
 		// const timeStamp = Date.now()
 
 		let formData = {visitorName, visitorEmail, visitorComment, visitorStatus, visitorImage64}
+
+		// let formData = {visitorName, visitorEmail, visitorComment, visitorStatus}
 		
 		let options = {
 			method: 'POST',
@@ -29,19 +38,8 @@ function setup() {
 
 		// console.log(formData)
 		let response = await fetch('/api/formdata', options)
-		let sentData = ''
-		if(!response.ok) {
-			throw new Error(`HTTP Error! Status : ${response.status}`)
-		} else {
-			sentData = await response.json()
-			console.log('Sent to Node', sentData)
-		}
-		// fetch('/api/formdata', options)
-		// 	.then(response => {
-		// 		console.log(response)
-		// 	}).catch(error => {
-		// 		console.error(error)
-		// 	})
+		let json = await response.json()
+		console.log(json)
 	})
 
 	const getData = async () => {
@@ -51,26 +49,50 @@ function setup() {
 		let table = document.getElementById('dataName')
 	
 		data.forEach(element => {
-			console.log(element)
-			let row = `<table>
+			// console.log(element)
+			const dateString = new Date(element.timestamp).toLocaleString()
+			let row = `
+								<div style="border: 1px solid gray; margin: 15px; padding: 15px;">
+								<table>
 								<tr>
-									<td><strong>Visitor's ID: </strong></td>
-									<td>${element._id}</strong></td>
+									<td><strong>Visitor's Picture</strong></td>&emsp;
+									<td>&emsp;&emsp;&emsp;<img src="${element.visitorImage64}" alt="visitor's image" style="border: 1px solid gray;"></img></td>
 								</tr>
 								<tr>
-									<td><strong>Visitor's Name: </strong></td>
-									<td>${element.name}</strong></td>
+									<td><strong>Visitor's ID: </strong></td>&emsp;
+									<td>&emsp;&emsp;&emsp;${element._id}</strong></td>
 								</tr>
 								<tr>
-									<td><strong>Visitor's Status: </strong></td>
-									<td>${element.status}</td>
+									<td><strong>Visitor's Name: </strong></td>&emsp;
+									<td>&emsp;&emsp;&emsp;${element.visitorName}</strong></td>
+								</tr>
+								<tr>
+									<td><strong>Visitor's Email: </strong></td>&emsp;
+									<td>&emsp;&emsp;&emsp;${element.visitorEmail}</td>
+								</tr>
+								<tr>
+									<td><strong>Comment: </strong></td>&emsp;
+									<td>&emsp;&emsp;&emsp;${element.visitorComment}</td>
+								</tr>
+								<tr>
+									<td><strong>Visitor's Status: </strong></td>&emsp;
+									<td>&emsp;&emsp;&emsp;${element.visitorStatus}</td>
+								</tr>
+								<tr>
+									<td><strong>Date Visited: </strong></td>&emsp;
+									<td>&emsp;&emsp;&emsp;${dateString}</td>
 								</tr>
 								</table>
-								<br>`
-			// table.innerHTML += row
+								</div>
+								`
+			table.innerHTML += row
 		});
 	}
 
-	// getData();
-	
+	getData();
+}
+
+function draw() {
+	tint(255, 255, 0)
+	image(video, 0 ,0)
 }
