@@ -25,9 +25,9 @@ app.use(express.static(__dirname + '/public'))
 
 // para maka pasok ung json from ajax/fetch api/ client side js
 // parse application/x-www-form-urlencoded
-app.use(express.urlencoded({limit:'1mb', extended: true}))
+app.use(express.urlencoded({limit:'50mb', extended: true}))
 // parse application/json
-app.use(express.json({limit:'1mb', extended: true}))
+app.use(express.json({limit:'50mb', extended: true}))
 
 app.use(cors({
 	origin:'*',

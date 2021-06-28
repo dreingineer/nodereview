@@ -1,14 +1,14 @@
 let video;
 function setup() {
 	// noCanvas()
-	background(51)
-	let cnv = createCanvas(320, 240)
-	video = createCapture(VIDEO)
-	video.elt.setAttribute('playsinline', '')
-	//hides video
-	video.hide()
-	video.size(320, 240)
-	cnv.position(0, 0, 'fixed')
+	// background(51)
+	// let cnv = createCanvas(320, 240)
+	// video = createCapture(VIDEO)
+	// video.elt.setAttribute('playsinline', '')
+	// //hides video
+	// video.hide()
+	// video.size(320, 240)
+	// cnv.position(0, 0, 'fixed')
 
 	const button = document.getElementById('submit')
 	
@@ -18,13 +18,11 @@ function setup() {
 		const visitorEmail = document.getElementById('email').value
 		const visitorComment = document.getElementById('comment').value
 		const visitorStatus = document.getElementById('status').value
-		video.loadPixels()
-		const visitorImage64 = video.canvas.toDataURL()
+		// video.loadPixels()
+		// const visitorImage64 = video.canvas.toDataURL()
 		// const timeStamp = Date.now()
 
-		let formData = {visitorName, visitorEmail, visitorComment, visitorStatus, visitorImage64}
-
-		// let formData = {visitorName, visitorEmail, visitorComment, visitorStatus}
+		let formData = {visitorName, visitorEmail, visitorComment, visitorStatus}
 		
 		let options = {
 			method: 'POST',
@@ -54,10 +52,6 @@ function setup() {
 			let row = `
 								<div style="border: 1px solid gray; margin: 15px; padding: 15px;">
 								<table>
-								<tr>
-									<td><strong>Visitor's Picture</strong></td>&emsp;
-									<td>&emsp;&emsp;&emsp;<img src="${element.visitorImage64}" alt="visitor's image" style="border: 1px solid gray;"></img></td>
-								</tr>
 								<tr>
 									<td><strong>Visitor's ID: </strong></td>&emsp;
 									<td>&emsp;&emsp;&emsp;${element._id}</strong></td>
