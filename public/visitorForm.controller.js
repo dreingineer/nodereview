@@ -50,7 +50,7 @@ function setup() {
 			// console.log(element)
 			const dateString = new Date(element.timestamp).toLocaleString()
 			let row = `
-								<div style="border: 1px solid gray; margin: 15px; padding: 15px;">
+								<div class="tabledata" style="border: 1px solid gray; margin: 15px; padding: 15px;">
 								<table>
 								<tr>
 									<td><strong>Visitor's ID: </strong></td>&emsp;
@@ -86,7 +86,7 @@ function setup() {
 	getData();
 }
 
-function draw() {
-	tint(255, 255, 0)
-	image(video, 0 ,0)
-}
+// function draw() {
+// 	tint(255, 255, 0)
+// 	image(video, 0 ,0)
+// }
