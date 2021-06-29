@@ -7,12 +7,57 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>AndreiJS</title>
 	<link rel="stylesheet" type="text/css" href="./style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<!-- <a class="navbar-brand" href="/">dreingineer</a> -->
+				<img class="logo" src="./images/dreingineerlogo.png" alt="">
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/about">About Me</a></li>
+				<li><a href="/chat">Let's Chat</a></li>
+				<li><a href="/visitorForm">Visitor's Wall</a></li>
+				<li><a href="#">Portfolio</a></li>
+			</ul>
+			<!-- <a href="javascript:void(0);" class="icon" onclick="toggleBurger()">
+				<i class="fa fa-bars"></i>
+			</a> -->
+		</div>
+	</nav>
+
+	<!-- will be displayed on moble view -->
+	<div class="mobile-container">
+		<!-- Top Navigation Menu -->
+		<div class="topnav">
+			<a href="#home" class="active"><img class="logo" src="./images/dreingineerlogo.png" alt=""></a>
+			<div id="myLinks">
+				<a class="pages" href="/about">About Me</a>
+				<a class="pages" href="/chat">Let's Chat</a>
+				<a class="pages" href="/visitorForm">Visitor's Wall</a>
+			</div>
+			<a href="javascript:void(0);" class="icon" onclick="toggleBurger()">
+				<i class="fa fa-bars"></i>
+			</a>
+		</div>
+		<!-- End smartphone / tablet look -->
+	</div>
+
+
+	<div class="canvas">
+		<div class="container canvas-inner">
+			<h1>Welcome to My Nth Page</h1>
+			<p>"You mustn't let mistakes weigh you down. Acknowledge them and take what you've learned to move on. That is the
+				privilege of being a man." ~ Full Frontal</p>
+		</div>
+	</div>
 	<div>
 		<p>🇵🇭 <span id="country"></span>Covid-19 update: </p>
-		<div class="row">
+		<div class="row1">
 			<div class="col1"></span><strong>INFECTED:</strong><span></span><span id="infected"></span></div>
 			<div class="col2"></span><strong>TESTED:</strong><span></span><span id="tested"></span></div>
 			<div class="col3"></span><strong>RECOVERED:</strong><span></span><span id="recovered"></span></div>
@@ -22,19 +67,13 @@
 		</div>
 		<p class="hashtag">MASK😷 HUGAS👏 IWAS📏 +BAKUNA💉</p>
 	</div>
-	<div class="toppart">
-		<h1>Home Page served by Node.JS!</h1><br>(oh yeah!)
+	<div class="footer">
+
 	</div>
-	<p>I use Node.JS, and a little HTML/CSS to make this simple but funtional website. Thanks to free resources in
-		youtube and my experience.</p>
-	<div class="links">
-		<a href="/about">About Page</a>
-	</div>
-	<div class="links">
-		<a href="/chat">Let's Chat!</a>
-	</div>
-	<div class="links">
-		<a href="/visitorForm">Drop me a comment!</a>
+	<div class="footnote">
+		I used Node.JS, JavaScript,and HTML/CSS to create this simple but funtional website. Thanks to free resources in
+		youtube and also experience. I am almost finished with the logic/backend part, and my pages are still a work in
+		progress. - Andrei
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

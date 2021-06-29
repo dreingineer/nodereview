@@ -29,5 +29,17 @@ const getCovidData = async () => {
 
 }
 
-
 getCovidData()
+
+const toggleBurger = async () => {
+  console.log('clicked');
+  let x = document.getElementById('myLinks');
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
+
+

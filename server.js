@@ -21,7 +21,8 @@ database.loadDatabase()
 // database.insert({name:'Bloom', status: 'studying php!'})
 
 app.use(express.static(__dirname + '/public'))
-// app.use(express.static('/images', __dirnamae + '/public/images'))
+//to map images folder
+app.use('/images', express.static(__dirname + '/public/images'))
 
 // para maka pasok ung json from ajax/fetch api/ client side js
 // parse application/x-www-form-urlencoded
