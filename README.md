@@ -17,3 +17,6 @@ Added new feature, this web app can now save data using nedb, thanks to coding t
 
 June 28, 2021
 Saving visitor's form feature added, will work on the UI improvement using bootstrap and page to show all the visitors who dropped me some messages via this app
+
+June 29, 2021
+I found out that saved data in this app is getting deleted after some time, but its working. Pushed changes to improve the landing page and mobile responsive too. 
