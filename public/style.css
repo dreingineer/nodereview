@@ -34,10 +34,73 @@ p {
 	font-size: 20px;
 }
 
-.row1 {
-	display: grid;
-	grid-template-columns: auto auto auto;
+.content-row {
+	display: table;
+	width: 90%;
+	margin: auto;
+	text-align: center;
+	margin-top: 350px;
 }
+
+.welcomebanner {
+	position: relative;
+	top: 80px;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* bloom */
+.content-row-inner {
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.contentone-column1 .contenttwo-column2 {
+	width: 100%;
+}
+
+.contentone-column1 {
+	width: 50%;
+	padding: 10px;
+	position: relative;
+	top: 0;
+	bottom: 0;
+	text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+	.content-row-inner {
+		display: block;
+		margin: auto;
+	}
+}
+
+.contenttwo-row {
+	display: table;
+	width: 100%;
+	margin: auto;
+	text-align: center;
+	position: relative;
+	top: 5px;
+}
+
+.contenttwo-row .col {
+	display: block;
+	margin-bottom: 10px;
+	float: left;
+	padding: 10px;
+	box-sizing: border-box;
+	width: 47%;
+	margin-right: 10px;
+	color: wheat;
+	border: 1px solid wheat;
+}
+
+.contenttwo-row .col i {
+	font-size: 64px;
+}
+/* bloom */
 
 .footnote {
 	text-align: center;
@@ -49,11 +112,30 @@ p {
 		grid-template-columns: auto auto;
 		margin: 25px 10px 25px 10px;
 	}
+
+	.welcomebanner {
+		top: 0px;
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	}
 }
 
 @media only screen and (max-width: 425px) {
 	.hashtag {
 		font-size: 15px;
+	}
+
+	.content-row-inner {
+		margin-top: 100px;
+		margin-bottom: 100px;
+
+	}
+
+	.contentone-column1 {
+		width: 100%;
+	}
+
+	.contenttwo-row .col {
+		width: 100%;
 	}
 }
 
@@ -102,7 +184,7 @@ p {
 
 .canvas:before {
 	content: '';
-	background-image: url('/images/landingimg1.jpg');
+	background-image: url('/images/landingimg2.jpg');
 	background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -134,9 +216,36 @@ p {
 }
 
 .footer {
-	height: 30vh;
+	height: 40vh;
 	position: relative;
 	background-color: black;
+	text-align: center;
+}
+
+.footer-row {
+	/* display: table; */
+	width: 100%;
+	/* margin: auto; */
+	/* text-align: center; */
+
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer-column {
+	display: block;
+	margin-bottom: 10px;
+	float: left;
+	padding: 10px;
+	box-sizing: border-box;
+	width: 30%;
+	margin-right: 5%;
+}
+
+.litrato {
+	width: 350px;
 }
 
 .icon {

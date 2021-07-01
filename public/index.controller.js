@@ -17,6 +17,7 @@ const getCovidData = async () => {
   activeCases = latestData.activeCases
   // unique = latestData.unique
   lastUpdate = latestData.lastUpdatedAtApify
+  let updatedTime = moment.utc(lastUpdate).format('MM/DD/YYYY')
   
   document.getElementById('country').textContent = country
   document.getElementById('infected').textContent = infected
@@ -25,7 +26,7 @@ const getCovidData = async () => {
   document.getElementById('deceased').textContent = deceased
   document.getElementById('activecases').textContent = activeCases
   // document.getElementById('unique').textContent = unique
-  document.getElementById('lastupdate').textContent = lastUpdate
+  document.getElementById('lastupdate').textContent = updatedTime
 
 }
 
