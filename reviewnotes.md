@@ -109,3 +109,10 @@ http module
 //#############global##################
 // console.log(__dirname);
 // console.log(__filename);
+
+<blockquote>
+<p>"You mustn't let mistakes weigh you down. Acknowledge them and take what you've learned to move on. That is
+the
+privilege of being a man."</p>
+<footer>Full Frontal</footer>
+</blockquote>
