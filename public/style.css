@@ -23,7 +23,7 @@
 }
 
 h1 {
-	font-size: 5rem;
+	font-size: 4rem;
 }
 
 p {
@@ -106,6 +106,10 @@ p {
 
 .footnote {
 	text-align: center;
+}
+
+.footnote p {
+	justify-content: center;
 }
 
 @media only screen and (max-width: 768px) {
@@ -224,7 +228,7 @@ p {
 /* covid update section */
 
 .footer {
-	height: 40vh;
+	height: 50vh;
 	position: relative;
 	background-color: rgb(43, 41, 41);
 	text-align: center;
@@ -250,6 +254,7 @@ p {
 .footer-column {
 	display: block;
 	/* margin-bottom: 10px; */
+	margin-top: 30px;
 	float: left;
 	padding: 10px;
 	box-sizing: border-box;
@@ -260,6 +265,10 @@ p {
 .litrato {
 	width: 55%;
 	border-radius: 50%;
+}
+
+.loc {
+	color: orange;
 }
 
 blockquote {
@@ -359,4 +368,113 @@ blockquote {
 		background-color:#F8F8F8;
 		color: white;
 	}
+}
+
+/* about page */
+/* font-family: 'Alfa Slab One', cursive;
+font-family: 'Caveat', cursive; */
+.aboutpage {
+	height: 100vh;
+	background-image: -webkit-linear-gradient(80deg, #57956a 60%, #f6f6f6 40%);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	font-family: 'Alfa Slab One', cursive;
+}
+
+.aboutcontainer {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0 3rem;
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+	text-align: center;
+	align-items: center;
+}
+
+.aboutcontainer h1 {
+	color: #398f51;
+	font-size: 3rem;
+	font-weight: 700;
+	letter-spacing: 5px;
+	margin-bottom: 2rem;
+}
+
+.aboutcontainer h2 {
+	color: rgb(37, 33, 33);
+	font-size: 2rem;
+	font-weight: 400;
+}
+
+.aboutcontainer .image {
+	width: 300px;
+	border-radius: 50%;
+	border: 1px solid #333;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+@media screen and (max-width: 320px) {
+	.aboutcontainer .image {
+		width: 270px;
+	}
+}
+
+.aboutcontainer .aboutmetext {
+	margin-bottom: 20px;
+}
+
+.aboutcontainer .aboutmetext p {
+	font-size: 1rem;
+	color: #fff;
+	line-height: 2rem;
+}
+
+.aboutcontainer .btn {
+	display: inline-block;
+	padding: 1rem 3rem;
+	background: #f6f6f6;
+	font-size: 1rem;
+	text-decoration: none;
+	color: #398f51;
+	border-radius: 5px;
+	transition: background 0.5s;
+}
+
+.aboutcontainer .btn:hover {
+	background: #dadada;
+}
+
+.aboutmetext {
+	font-family: 'Alfa Slab One', cursive;
+	color: rgb(90, 83, 83);
+	margin: auto;
+}
+
+.socmedicons {
+	margin: 20px auto;
+	text-align: center;
+	
+}
+
+.socmedicons a {
+	margin-left: 1%;
+	margin-right: 1%;
+}
+
+.socmedicons i {
+	font-size: 32px;
+	color: #fff;
+}
+
+.aboutmeworks {
+	background: #000;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	
+}
+
+.aboutmeworks .row {
+	display: block;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
