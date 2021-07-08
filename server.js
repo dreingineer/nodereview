@@ -81,7 +81,7 @@ app.get('/api/formdata', async (req, res) => {
 			res.end()
 			return
 		}
-		else res.json(docs)
+		else console.log(docs)
 	})
 })
 
@@ -139,9 +139,13 @@ app.post('/api/send-email', (req, res) => {
 
 	let transporter = emailer.createTransport(smtpTransport({
 		service: 'gmail',
+		secure: false,
 		auth: {
 			user: ownEmail,
 			pass: ownPass
+		},
+		tls: {
+			rejectUnauthorized: false
 		}
 	}))
 
@@ -158,13 +162,14 @@ app.post('/api/send-email', (req, res) => {
 	transporter.sendMail(mailOptions, (error, info) => {
 		if(error) {
 			console.log(error)
-			res.send(error)
+			// res.send(error)
 		} else {
 			console.log(info.response)
-			// res.send('Success')
+			// res.status(200)
 		}
 		transporter.close()
 	})
+	// res.status(200);
 });
 
 

@@ -15,8 +15,8 @@ sendEmail.addEventListener('click', async (e) => {
 	// using axios to post to node rest api
 	let url = 'http://localhost:5000/api/send-email'
 	let response = await axios.post(url, contactForm)
-	let emailBody = await response.data
-	console.log('front-end data', emailBody)
+	let status = await response.data
+	console.log(status)
 	
 	alert('Email Sent')
 
