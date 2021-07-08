@@ -12,9 +12,14 @@ const io = require('socket.io')(server)
 const request = require('request-promise')
 const cheerio = require('cheerio')
 const cors = require('cors')
-const Datastore = require('nedb');
-const { now } = require('moment');
+const Datastore = require('nedb')
+const { now } = require('moment')
+const emailer = require('nodemailer');
+const smtpTransport = require('nodemailer-smtp-transport')
+
+const { insertBefore } = require('cheerio/lib/api/manipulation');
 const database = new Datastore('dreisdatabase.db')
+
 database.loadDatabase()
 
 // database.insert({name:'Andrei', status: 'curious'})
@@ -121,6 +126,47 @@ app.get('/api/covid-update-now', async(req, res) => {
 		console.log(err)
 	}
 })
+
+// send email
+app.post('/api/send-email', (req, res) => {
+	let recievedEmailBody = req.body;
+	console.log(recievedEmailBody)
+
+	res.status(200).send({message:'OK'})
+
+	const ownEmail = 'info.andreiapp@gmail.com'
+	const ownPass = 'Infotestapp1!'
+
+	let transporter = emailer.createTransport(smtpTransport({
+		service: 'gmail',
+		auth: {
+			user: ownEmail,
+			pass: ownPass
+		}
+	}))
+
+	let mailOptions = {
+		from: req.body.email,
+		to: ownEmail,
+		subject: `Message from ${req.body.name} - ${req.body.email}: ${req.body.subject}`,
+		text: req.body.emailbody
+	};
+
+	// const info = await transporter.sendMail(mailOptions)
+	// const result = await info.response
+
+	transporter.sendMail(mailOptions, (error, info) => {
+		if(error) {
+			console.log(error)
+			res.send(error)
+		} else {
+			console.log(info.response)
+			// res.send('Success')
+		}
+		transporter.close()
+	})
+});
+
 
 // default route
 app.get('*', (req, res) => {

@@ -429,6 +429,30 @@ font-family: 'Caveat', cursive; */
 	line-height: 2rem;
 }
 
+.aboutcontainer .emailprompt {
+	color: white;
+	font-size: medium;
+}
+
+.aboutcontainer .form-container {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.aboutcontainer .form-container input {
+	width: 100%;
+}
+
+.aboutcontainer .form-container input, textarea {
+	border: none;
+	border-bottom: 1px solid grey;
+}
+
+.aboutcontainer .form-container .emailmessage {
+	width: 100%;
+}
+
 .aboutcontainer .btn {
 	display: inline-block;
 	padding: 1rem 3rem;
@@ -473,8 +497,17 @@ font-family: 'Caveat', cursive; */
 	
 }
 
+.aboutmeworks {
+	padding: 25px;
+}
+
 .aboutmeworks .row {
 	display: block;
 	margin-top: 30px;
 	margin-bottom: 30px;
+}
+
+.footlogo {
+	font-size: 48px;
+	color: gold;
 }

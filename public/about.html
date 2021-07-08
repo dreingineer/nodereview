@@ -13,6 +13,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Caveat&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 </head>
 
 <body class="aboutpage">
@@ -32,11 +33,26 @@
 				reasons. I focused on freelancing as well as
 				attending TESDA trainings related to web development, creative web design, and programming. I also take part on
 				engineering side hustle with my business partners. During free time, I love biking, coding, working on my
-				personal projects, eating, and spending time with my wife.
+				personal projects, eating, and spending time with my wife and our <i class="fas fa-cat"></i>.
 				<p>Manila and Mandaluyong, Philippines</p>
 			</div>
 		</div>
-		<a href="/" class="btn">Return Home</a>
+		<div class="emailprompt">
+			You ceach me through email:
+		</div>
+		<div class="form-container">
+			<form class="contact-form">
+				<input type="text" id="name" placeholder="Full Name">
+				<input type="email" id="email" placeholder="Email">
+				<input type="text" id="subject" placeholder="Subject">
+				<div class="emailbody">
+					<textarea class="emailmessage" id="message" cols="30" rows="10" placeholder="message"></textarea>
+				</div>
+			</form>
+		</div>
+		<a href="/" class="btn">Return <i class="fas fa-home"></i></a>
+		<a href="/" class="btn" id="highfive">High Five <i class="far fa-hand-paper"></i></a>
+
 	</div>
 	<div class="socmedicons">
 		<div>
@@ -48,34 +64,55 @@
 	</div>
 	<div class="aboutmeworks">
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis rem
-				unde
-				molestiae
-				incidunt
-				accusamus vel, voluptatibus velit quis vero quae similique impedit suscipit tempore aliquid fuga! Mollitia
-				reiciendis nesciunt distinctio?</div>
-			<div class="col-xs-12 col-sm-6 col-md-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore,
-				expedita.
-				Accusantium
-				repudiandae possimus consequatur obcaecati ipsam dolor placeat modi. Cum facere vitae, nesciunt nisi est et
-				necessitatibus quidem aperiam consequuntur.</div>
-			<div class="col-xs-12 col-sm-6 col-md-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis commodi
-				odio,
-				provident
-				itaque
-				ipsa perferendis quod vitae, reprehenderit accusamus officia harum ullam nulla, a maiores cumque. Eaque fugit
-				quis accusamus?</div>
-			<div class="col-xs-12 col-sm-6 col-md-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta distinctio
-				nemo quo
-				consectetur
-				earum recusandae fugiat totam quas, voluptatum perferendis officia nostrum cum rerum. Soluta perspiciatis saepe
-				deleniti voluptatum exercitationem.</div>
+			<div class="col-xs-12 col-sm-6 col-md-3">
+				<div class="footlogo">
+					<i class="fab fa-angular"></i>
+					<i class="fab fa-node"></i>
+					<i class="fab fa-js-square"></i>
+				</div> Node.JS Developer of an Agile Scrum team of a
+				insurance company. Used
+				Node.JS as a middleware and Angular.JS to develop the front-end of E-recruitment and Non-Life insurance web
+				application, prioritizing mobile responsiveness. Consumed responses from exposed API from the back-end. Create
+				RESTful routes and http methods to
+				send request and post responses back to server. Work on new and modifies existing features, fix web app bugs.
+				Deploy features to UAT and Production.
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-3">
+				<div class="footlogo">
+					<i class="fab fa-node"></i>
+					<i class="fab fa-js-square"></i>
+					<i class="fas fa-server"></i>
+				</div>Used Node.JS as back-end server and create RESTful API's to be used by front-end. Used Sequelize ORM as
+				middleware to MySQL, create business logic and CRUD algorithms for the models required by the project. Designed
+				ERD's to be used by the companies internal web app, based on the business requirements of stakeholders.
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-3">
+				<div class="footlogo">
+					<i class="fab fa-java"></i>
+					<i class="fab fa-js-square"></i>
+					<i class="fas fa-code"></i>
+					<i class="fas fa-database"></i>
+				</div>As an associate solutions developer, used Java core, J2EE with Spring and Spring Boot framework, Maven to
+				manage dependencies to develop web applications. Experience in H2 memory database, Oracle, and MySQL with
+				workbench.
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-3">
+				<div class="footlogo">
+					<i class="fab fa-java"></i>
+					<i class="fab fa-js-square"></i>
+					<i class="fab fa-node"></i>
+					<i class="fas fa-code"></i>
+					<i class="fas fa-database"></i>
+				</div>Software development internship with DICT and Private Company's projects. Develop web apps with senior
+				developers guide, using Java Core, JDBC, MySQL, J2EE, XML, Node.JS, JavaScript, HTML5, and CSS3. Also worked on
+				own project implementing all the web technologies learned from the internship.
+			</div>
 		</div>
 	</div>
 	<div class="footnote">
 		<p><i class="far fa-copyright"></i>dreinodereview 2021</p>
 	</div>
-
+	<script src="./about.controller.js"></script>
 </body>
 
 </html>
