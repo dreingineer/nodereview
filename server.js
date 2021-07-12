@@ -71,6 +71,19 @@ app.post('/api/formdata', async (request, response) => {
 	data.timestamp = timestamp
 	let result = await database.insert(data)
 	let saved = await response.json(result)
+
+	// notifies email after sending comment
+
+	let mailOptions = {
+		from: data.visitorEmail,
+		subject: `Comment from ${data.visitorName} - ${data.visitorEmail} | ${data.visitorStatus}`,
+		html: `<div>
+						<h4>${data.visitorName} | ${data.visitorStatus}</h4>
+						<p>Commented: ${data.visitorComment}</p>
+					</div>`
+	};
+
+	await emailService(mailOptions)
 })
 
 // api to get data from nedb
@@ -81,7 +94,10 @@ app.get('/api/formdata', async (req, res) => {
 			res.end()
 			return
 		}
-		else console.log(docs)
+		else {
+			// console.log('from nedb', docs)
+			res.send(docs)
+		}
 	})
 })
 
@@ -128,48 +144,19 @@ app.get('/api/covid-update-now', async(req, res) => {
 })
 
 // send email
-app.post('/api/send-email', (req, res) => {
+app.post('/api/send-email', async (req, res) => {
 	let recievedEmailBody = req.body;
 	console.log(recievedEmailBody)
 
 	res.status(200).send({message:'OK'})
 
-	const ownEmail = 'info.andreiapp@gmail.com'
-	const ownPass = 'Infotestapp1!'
-
-	let transporter = emailer.createTransport(smtpTransport({
-		service: 'gmail',
-		secure: false,
-		auth: {
-			user: ownEmail,
-			pass: ownPass
-		},
-		tls: {
-			rejectUnauthorized: false
-		}
-	}))
-
 	let mailOptions = {
 		from: req.body.email,
-		to: ownEmail,
 		subject: `Message from ${req.body.name} - ${req.body.email}: ${req.body.subject}`,
 		text: req.body.emailbody
 	};
 
-	// const info = await transporter.sendMail(mailOptions)
-	// const result = await info.response
-
-	transporter.sendMail(mailOptions, (error, info) => {
-		if(error) {
-			console.log(error)
-			// res.send(error)
-		} else {
-			console.log(info.response)
-			// res.status(200)
-		}
-		transporter.close()
-	})
-	// res.status(200);
+	await emailService(mailOptions)
 });
 
 
@@ -191,6 +178,39 @@ io.on('connection', (socket) => {
 		socket.broadcast.emit('chat', message)
 	})
 })
+
+// email sender function
+const emailService = async (mailOptions) => {
+	console.log(mailOptions)
+	const ownEmail = 'info.andreiapp@gmail.com'
+	const ownPass = 'Infotestapp1!'
+
+	let transporter = await emailer.createTransport(smtpTransport({
+		service: 'gmail',
+		secure: false,
+		auth: {
+			user: ownEmail,
+			pass: ownPass
+		},
+		tls: {
+			rejectUnauthorized: false
+		}
+	}))
+
+	mailOptions.to = `${ownEmail}, ${mailOptions.from}`
+
+	await transporter.sendMail(mailOptions, (error, info) => {
+		if(error) {
+			console.log(error)
+			// res.send(error)
+		} else {
+			console.log(info.response)
+			// res.status(200)
+		}
+		transporter.close()
+	})
+	// res.status(200);
+}
 
 server.listen(PORT , LOCALHOST, () => {
 	console.log(`Server running at localhost:${PORT}!`);

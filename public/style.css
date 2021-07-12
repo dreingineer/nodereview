@@ -301,6 +301,10 @@ blockquote {
 	display: none;
 }
 
+.anavbar {
+	border-bottom: 0;
+}
+
 .mobile-container {
 	display: none;
 }
@@ -351,7 +355,7 @@ blockquote {
 	}
 	
 	.topnav a.icon {
-		background: black;
+		color: #000;
 		font-size: 35px;
 		display: block;
 		position: absolute;
@@ -421,6 +425,17 @@ font-family: 'Caveat', cursive; */
 
 .aboutcontainer .aboutmetext {
 	margin-bottom: 20px;
+	width: 65%;
+}
+
+@media screen and (max-width: 768px) {
+	.aboutcontainer .aboutmetext {
+		width: 90%;
+	}
+
+	.aboutcontainer .form-container {
+		width: 90%;
+	}
 }
 
 .aboutcontainer .aboutmetext p {
@@ -436,8 +451,15 @@ font-family: 'Caveat', cursive; */
 
 .aboutcontainer .form-container {
 	padding: 0;
-	margin: 0;
+	margin: auto;
 	box-sizing: border-box;
+	width: 65%;
+}
+
+@media screen and (max-width: 768px) {
+	.aboutcontainer .form-container {
+		width: 90%;
+	}
 }
 
 .aboutcontainer .form-container input {
@@ -510,4 +532,88 @@ font-family: 'Caveat', cursive; */
 .footlogo {
 	font-size: 48px;
 	color: gold;
+}
+
+.text {
+	color: white;
+}
+
+/* visitor form */
+.visitorModalOpen {
+	margin: 10px;
+	text-align: center;
+}
+
+@media screen and (max-width: 425px) {
+	.aboutbtn {
+		width: 100%;
+		margin: 5px;
+	}
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modaldata {
+	margin-top: 35px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+}
+
+@media screen and (max-width: 768px) {
+	.modal-content {
+		width: 90%;
+	}
+	.modaldata {
+		width: 100%;
+	}
+}
+
+.modaldata input, textarea {
+	border: 0;
+	border-bottom: 1px solid #888;
+	margin-bottom: 3px;
+	margin-top: 3px;
+	width: 100%;
+}
+
+.modalahome {
+	width: 100%;
 }

@@ -14,6 +14,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"
 		integrity="sha512-hAm8hj9/2EIonvS+sf0G3anaY8zYHv6q7ktNlLTg8wLwFvhUavnDdH0gif8SA3U1kN0lyKBWbf1wD4+5BfaMMA=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 	<link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 
@@ -23,23 +25,38 @@
 			<hr>
 			<h1>What can you say about my toy project?</h1>
 			<hr>
-			<p>Thanks for visiting my toy website!(I have bootstrap 3 installed on this page). Please give me something like
-				feedback or nice comments. Hope I can make a
-				website bigger than this in the future, like a simple social media site.</p>
-			<form action="">
-				<label for="name">What's your name: </label><br>
-				<input type="text" id="name" required><br>
-				<label for="email">Email: </label><br>
-				<input type="email" id="email"><br>
-				<label for="comment">Message or Comment: </label><br>
-				<input type="text" id="comment"><br>
-				<label for="status">Status/Feeling:</label><br>
-				<input type="text" id="status" placeholder="Feeling right now?"><br><br>
-				<input class="btn btn-success" type="submit" id="submit"> | <a class="btn btn-default" href="/">Go Back</a>
-			</form>
+			<p>Thanks for visiting my toy website! Please give me something like
+				feedback or nice comments. I plan to make a website bigger than this with more functionality in the future, so
+				drop by this site again.</p>
+			<br>
+			<p>Did you enjoy? You can either: </p>
+			<div class="visitorModalOpen">
+				<div>
+					<button class="btn btn-info aboutbtn" id="commentBtn">Leave a comment</button>
+					<button class="btn btn-warning aboutbtn" id="commentBtn">Treat me some <i class="fas fa-mug-hot"></i></button>
+				</div>
+			</div>
+			<div id="pageModal" class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<div class="modaldata">
+						<label for="modalName">Name</label><br>
+						<input type="text" id="modalName" required><br>
+						<label for="modalEmail">Email</label><br>
+						<input type="email" id="modalEmail" required><br>
+						<label for="modalStatus">Status</label><br>
+						<input type="text" id="modalStatus" required><br>
+						<label for="modalMessage">Testimonial</label><br>
+						<textarea name="modalMessage" id="modalMessage" cols="30" rows="10"></textarea>
+						<br>
+						<input class="btn btn-success" type="submit" id="submit"><a class="btn btn-primary modalahome" href="/">Home
+							<i class="fas fa-home"></i></a>
+					</div>
+				</div>
+			</div>
 			<br>
 			<hr>
-			<h2>Visitor's List</h2>
+			<h2>My Visitor's</h2>
 			<hr>
 			<div class="table" id="dataName"></div>
 		</div>

@@ -1,23 +1,15 @@
 let video;
 function setup() {
-	// noCanvas()
-	// background(51)
-	// let cnv = createCanvas(320, 240)
-	// video = createCapture(VIDEO)
-	// video.elt.setAttribute('playsinline', '')
-	// //hides video
-	// video.hide()
-	// video.size(320, 240)
-	// cnv.position(0, 0, 'fixed')
-
 	const button = document.getElementById('submit')
 	
 	button.addEventListener('click', async () => {
 		// console.log('clicking')
-		const visitorName = document.getElementById('name').value
-		const visitorEmail = document.getElementById('email').value
-		const visitorComment = document.getElementById('comment').value
-		const visitorStatus = document.getElementById('status').value
+		alert('Comment Posted!');
+		
+		const visitorName = document.getElementById('modalName').value
+		const visitorEmail = document.getElementById('modalEmail').value
+		const visitorStatus = document.getElementById('modalStatus').value
+		const visitorComment = document.getElementById('modalMessage').value
 		// video.loadPixels()
 		// const visitorImage64 = video.canvas.toDataURL()
 		// const timeStamp = Date.now()
@@ -40,10 +32,15 @@ function setup() {
 		console.log(json)
 	})
 
+	button.addEventListener('click', async () => {
+		// modal.style.display = 'none'
+		await setTimeout(closeModal(), 3000)
+	})
+
 	const getData = async () => {
-		const response = await fetch('/api/formdata')
+		const response = await fetch('/api/formdata', {credentials: 'include'})
 		const data = await response.json()
-	
+		// console.log(data);
 		let table = document.getElementById('dataName')
 	
 		data.forEach(element => {
@@ -84,9 +81,27 @@ function setup() {
 	}
 
 	getData();
-}
 
-// function draw() {
-// 	tint(255, 255, 0)
-// 	image(video, 0 ,0)
-// }
+	let modal = document.getElementById('pageModal')
+	let openModal = document.getElementById('commentBtn')
+	let span = document.getElementsByClassName('close')[0]
+
+	openModal.addEventListener('click', async () => {
+		modal.style.display = 'block'
+	})
+
+	span.addEventListener('click', async () => {
+		modal.style.display = 'none'
+	})
+
+	let closeModal = async () => {
+		modal.style.display = 'none'
+	}
+
+	//when user clicks on the window
+	window.onclick = async (event) => {
+		if(event.target == modal) {
+			modal.style.display = 'none'
+		}
+	}
+}
