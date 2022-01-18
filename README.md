@@ -20,3 +20,6 @@ Saving visitor's form feature added, will work on the UI improvement using boots
 
 June 29, 2021
 I found out that saved data in this app is getting deleted after some time, but its working. Pushed changes to improve the landing page and mobile responsive too. 
+
+January 19, 2022
+Got busy with Java this past few months. I am planning to update this page and deploy to heroku. :)
